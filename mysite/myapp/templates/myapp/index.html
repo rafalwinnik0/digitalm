@@ -1,0 +1,33 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+    This is index page.
+    <div class="product-container flex">
+        {% for product in products %}
+            <div class="product shadow-lg w-1/4 rounded-lg m-10">
+                <div class="product-image">
+                    <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+                </div>
+                <div class="p-5">
+                    <div class="font-bold">
+                        {{product.name}}
+                    </div>
+                    <div class="font-bold">
+                        {{ product.description }}
+                    </div>
+                    <div class="text-green-700 font-bold">
+                        ${{product.price}}
+                    </div>
+                    <div class="mt-5">
+                        <a class="bg-green-500 text-white px-4 py-2" href="{% url 'detail' product.id %}">View Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{{ product.name }}
+{{ product.price }}
+{{ product.description }}
